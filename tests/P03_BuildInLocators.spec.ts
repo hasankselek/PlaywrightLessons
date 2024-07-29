@@ -13,7 +13,9 @@ test('OpenHRM Panel Giriş', async({page}) =>{
     await page.locator("//*[@name='username']").fill('Admin');
     await page.getByPlaceholder('Password').fill('admin123');
     await page.getByRole('button',{name : 'Login'}).click();
-    await expect(page.getByText('Dashboard').nth(1)).toBeVisible();
+    await expect(page.getByText('Dashboard').nth(0)).toBeVisible();
+    const dashboardLocate = page.getByText('Dashboard').nth(0);
+    expect(dashboardLocate).toBeVisible();
     // Birden fazla öğe aynı text(bv.) ile yer alıyorsa nth(n) ile istenilene ulaşılır.Buradaki n index nuaramasıdır.
     // buradaki n index numarasıdır. 1.eleman 0.indextedir
 
