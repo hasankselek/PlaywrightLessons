@@ -21,6 +21,20 @@ test('textbox and radio button',async({page})=>{
         await each.check();
         await expect(each).toBeChecked();
       }
+});
+
+test('dropdown menü',async({page})=>{
+    
+    await page.goto('https://testautomationpractice.blogspot.com/');
+    const dropDown = page.locator('#country');
+
+    await dropDown.selectOption("Japan");
+    await dropDown.selectOption({value:"japan"});
+    await dropDown.selectOption({index:6});
+
+    const options = page.locator("#country option");
+    
+    expect(options).toHaveCount(10);
 
 
 
